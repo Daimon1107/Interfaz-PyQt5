@@ -10,7 +10,7 @@ import numpy as np
 class MainApp(QMainWindow):
     def __init__(self, parent=None, *args):
         super(MainApp,self).__init__(parent)
-        self.setFixedSize(1142,342)
+        self.setFixedSize(1170,342)
         self.setWindowTitle("Interfaz")
         
         #! Conectar con css 
@@ -18,7 +18,6 @@ class MainApp(QMainWindow):
         self.setObjectName("designer")
         with open("stylesQt.css") as f:
             self.setStyleSheet(f.read())
-        
         
         self.centralwidget = QWidget()
         self.setCentralWidget(self.centralwidget)
@@ -80,12 +79,10 @@ class MainApp(QMainWindow):
         font3.setPointSize(12)
         self.ComboBox.setFont(font3)
         
-        
-        
         #? Se esta probando el codigo para el layout vertical al lado derecho
         
         self.verticalLayoutWidget = QWidget(self.centralwidget)  #? Widget adicional en la parte derecha
-        self.verticalLayoutWidget.setGeometry(QRect(750,0,370,370))
+        self.verticalLayoutWidget.setGeometry(QRect(750,0,410,370))
         
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0,0,0,0)
@@ -94,15 +91,27 @@ class MainApp(QMainWindow):
         self.stackedLayout = QStackedLayout()
         
         self.page0 = QWidget()
-        self.page0Layout = QVBoxLayout()
+        universidad = QLabel("<h1>UNIVERSIDAD TÉCNICA DE AMBATO</h1>",self.page0)
         
+        facultad = QLabel("<h2>FACULTAD DE INGENIERIA EN SISTEMAS</h2>",self.page0)
+        facultad.setGeometry(22,30,400,30)
+        materia = QLabel("<h3>PROGRAMACIÓN AVANZADA</h3>",self.page0)
+        materia.setGeometry(115,60,400,30)
+        integrantes = QLabel("<h3>Integrantes:</h3>",self.page0)
+        integrantes.setGeometry(50,90,100,30)
+        damian = QLabel("<h4>Damián Alban</h4>",self.page0)
+        damian.setGeometry(100,110,100,30)
         
+        karina = QLabel("<h4>Karina Yucailla</h4>",self.page0)
+        karina.setGeometry(100,130,100,30)
+        
+   
         self.label0  =QLabel(self.page0)
-        #self.label0.setGeometry(QRect(0,0,400,400))
-        pixmap0 = QPixmap("uzui.jpg")
+        self.label0.move(250,150)
+        pixmap0 = QPixmap("logo.jpg")
         self.label0.setPixmap(pixmap0)
-        self.page0Layout.addWidget(self.label0)
-        self.page0.setLayout(self.page0Layout)
+        
+        
         
         self.stackedLayout.addWidget(self.page0)
         
@@ -164,8 +173,7 @@ class MainApp(QMainWindow):
         self.btn_push4.clicked.connect(lambda: self.aumentarPush("btn4"))
         self.btn_push5.clicked.connect(lambda: self.aumentarPush("btn5"))
         self.btn_push6.clicked.connect(lambda: self.aumentarPush("btn6"))
-        
-        
+
         self.stackedLayout.addWidget(self.page2)     
         
         #? Se crea la pagina 3
@@ -176,12 +184,8 @@ class MainApp(QMainWindow):
         self.labelpag3 = QLabel("<h4>Ingrese los numeros que desea sacar la gráfica:</h4> ",self.page3)
         self.labelpag3.resize(300,40)
         
-        
         #self.labelpag3.setGeometry(0,0,300,70)
         self.labelpag3.setObjectName("labelpage3")
-        
-        
-        
         
         self.gridLayout_Qedit =QGridLayout()
         
@@ -224,9 +228,7 @@ class MainApp(QMainWindow):
         self.page4 = QWidget()
         self.button_grafica = QPushButton("Grafica",self.page4)
         self.button_grafica.clicked.connect(self.mostrar_grafica)
-        self.page4Layout = QVBoxLayout()
-        
-        self.page4.setLayout(self.page4Layout)
+        self.button_grafica.setGeometry(150,90,100,50)
         
         self.stackedLayout.addWidget(self.page4)
         
