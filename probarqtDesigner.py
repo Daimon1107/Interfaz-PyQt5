@@ -101,10 +101,7 @@ class MainApp(QMainWindow):
         integrantes.setGeometry(50,90,100,30)
         damian = QLabel("<h4>Damián Alban</h4>",self.page0)
         damian.setGeometry(100,110,100,30)
-        
-        karina = QLabel("<h4>Karina Yucailla</h4>",self.page0)
-        karina.setGeometry(100,130,100,30)
-        
+       
    
         self.label0  =QLabel(self.page0)
         self.label0.move(250,150)
